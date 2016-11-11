@@ -9,7 +9,7 @@ function PartitionProblem(list) {
 	var sum = list.reduce((a, b) => a + b, 0);
 	//determine what the sum of each list should be
 	var subListSum = sum / 2;
-	if((sum % 2 !== 0)) console.log("Error, sum of integers is not divisible by two, will return leftovers!");
+	if((sum % 2 !== 0)) console.log("Error, sum of integers is not divisible by two!");
 
 	var sublists = {}; var invalidList = {};
 	//loop list and create sub-lists
