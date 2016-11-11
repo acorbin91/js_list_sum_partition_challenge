@@ -25,12 +25,12 @@ function PartitionProblem(list) {
 		list.splice(list.indexOf(min), 1);
 		list.splice(list.indexOf(max), 1);
 			
-		//if our min+max dont add up to the desired sum, we need to loop the remaining integers to find the right sum, then return that as a sub-list
+		//if our min+max dont add up to the desired sum, we need to loop the remaining integers to find the right sum, then return that as our sub-list
 		if(min+max != subListSum) {
 			var curSum = min+max;
 			for(z=0; z<=list.length; z++) {
+				//try adding the smallest integer in left to our sub-list
 				var min = Math.min.apply(Math, list); 
-				
 				if(min + curSum <= subListSum) {
 					curSum = min + curSum;
 					list.splice(list.indexOf(min), 1);
@@ -38,9 +38,7 @@ function PartitionProblem(list) {
 				}
 				if(curSum == subListSum) break;
 			}
-		
 		}
-		
 		if (sublists[i].reduce((a, b) => a + b, 0) != subListSum) {
 			console.log("No way for integer partitions to have equal sums ("+subListSum+"): "+ sublists[i]);
 			leftOverList = sublists[i];
@@ -79,7 +77,6 @@ for (var key in partitions) {
    console.log(partition)
 }
 
-
 console.log("Example 4:");
 /* Example with sum of integers that is not divisible by two (will return error) */
 var list = [4,5,15,10];
@@ -99,7 +96,6 @@ for (var key in partitions) {
    var partition = partitions[key];
    console.log(partition)
 }
-
 
 console.log("Example 6:");
 /* Example with more than 4 values in list (still works as long as sum is divisible by two) */
